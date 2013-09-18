@@ -1,46 +1,38 @@
 require 'spec_helper'
 
 describe "StaticPages" do
+
+  subject { page }
+
   describe "home page" do
-    it "should have content '統制ツール'" do
-    	visit '/static_pages/home'
-    	expect(page).to have_content('統制ツール')
-    end
+    before { visit root_path }
 
-    it "should have right title" do
-      visit '/static_pages/home'
-      expect(page).to have_title('統制ツール|ホーム')
-    end
-
-
+    it { should have_content('統制ツール') }
+    it { should have_title(full_title('')) }
+    it { should_not have_content('| ホーム') }
   end
 
   describe "help page" do
-    it "should have content 'ヘルプ'" do
-    	visit '/static_pages/help'
-    	expect(page).to have_content('ヘルプ')
-    end
+    before { visit help_path }
 
-    it "should have right title" do
-      visit '/static_pages/help'
-      expect(page).to have_title('統制ツール|ヘルプ')
-    end
+    it { should have_content('ヘルプ') }
+    it { should have_title(full_title("ヘルプ")) }
   end
 
   describe "About page" do
-    it "should have content '私たちについて'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('私たちについて')
-    end
+    before { visit about_path }
 
-    it "should have right title" do
-      visit '/static_pages/about'
-      expect(page).to have_title('統制ツール|私たちについて')
-    end
+    it { should have_content('私たちについて') }
+    it { should have_title(full_title('私たちについて')) }
+  end
+
+  describe "contact page" do
+    before { visit contact_path }
+    
+    it { should have_content('コンタクト') }
+    it { should have_title(full_title('コンタクト')) }
   end
 end
-
-    	
  
 
 
