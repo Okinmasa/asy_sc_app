@@ -48,6 +48,16 @@ describe User do
   	end
   end
 
+  describe "email address with mixed case" do
+  	let(:mixed_case_email) { "FkkaTTk@Ki.com" }
+
+  	it "should be saved as all lower_case" do
+  	  @user.email = mixed_case_email
+  	  @user.save
+  	  expect(@user.reload.email).to eq mixed_case_email.downcase
+  	end
+  end
+
   describe "when email address is alreasy taken" do
   	before do
   	  user_with_duplicated_emmail = @user.dup

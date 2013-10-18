@@ -1,6 +1,14 @@
 @import "bootstrap";
 /* mixins, variables etc */
-$grayMidiumLight: eaeaea;
+$grayMidiumLight: #eaeaea;
+$ANAlightBlue: #66ccff;
+$ANAdarkBlue: #000666;
+
+@mixin box-sizing {
+  -moz-box-sizing: border-box;
+  -wegkit-box-sizing: border-box;
+  box-sizing: border-box;
+} 
 
 /* universal */
 html {
@@ -28,7 +36,7 @@ textarea {
 }
 
 .hero-unit {
-  background-color: #66ccff;
+  background-color: $ANAlightBlue;
 }
 
 /* typograpfy */
@@ -78,13 +86,15 @@ p {
 
 .navbar {
   .navbar-inner {
-    background-color: #000666;
+    background-color: $ANAdarkBlue;
     background-image: none;
   }
 }
 
+/* footer */
+
 footer {
-  margin-top: 45px;
+  margin-top: 10px;
   padding-top: 5px;
   border-top: 1px solid $grayMidiumLight;
   color: $grayLight;
@@ -107,4 +117,72 @@ footer {
       margin-right: 10px;
     }
   }
+}
+
+/* Miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box-sizing;
+}
+
+/* side bar */
+
+aside {
+  section {
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width:  100%;
+  margin-bottom: 15px;
+  @include box-sizing;
+}
+
+input {
+  hight: auto !important;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margein: 0 0 18px 0;
+  }
+}
+
+.filed_with_errors {
+  @extend .control-group;
+  @extend .error;
 }
