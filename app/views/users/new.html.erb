@@ -5,13 +5,13 @@
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
-      <%= f.label :name, "名前" %>
+      <%= f.label :name %>
       <%= f.text_field :name %>
-      <%= f.label :email, "メール" %>
+      <%= f.label :email %>
       <%= f.text_field :email %>
-      <%= f.label :password, "パスワード" %>
+      <%= f.label :password %>
       <%= f.password_field :password %>
-      <%= f.label :password_confirmation, "もう一度" %>
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
       <%= f.submit "登録", class: "btn-large btn-primary" %>
     <% end %>
